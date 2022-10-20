@@ -8,5 +8,24 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid()) @unique
+  id       String    @id @unique @default(uuid())
+  userName String    @unique
+  name     String
+  about    String
+  joinedOn DateTime  @default(now())
+  Message  Message[]
+}
+
+model Message {
+  id       String   @id @unique @default(uuid())
+  sender   User
+  receiver User
+  body     String
+  postedAt DateTime @default(now())
+  userId   String
+}
+
+model Mood {
+  id       String   @id @unique @default(uuid())
+  postedAt DateTime @default(now())
 }
