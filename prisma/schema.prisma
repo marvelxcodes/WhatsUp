@@ -8,11 +8,13 @@ datasource db {
 }
 
 model User {
-  id       String   @id @unique @default(uuid())
-  userName String   @unique
-  name     String
-  about    String
+  id    String @id @unique @default(uuid())
+  phone BigInt @unique
+  name  String
+  about String
+
   joinedOn DateTime @default(now())
+  lastSeen DateTime @default(now())
   Mood     Mood[]
 
   send     Message[] @relation("send")
@@ -24,9 +26,10 @@ model Message {
   body     String
   postedAt DateTime @default(now())
 
-  sender     User    @relation("send", fields: [senderId], references: [id])
-  receiver   User    @relation("received", fields: [receiverId], references: [id])
-  senderId   String
+  sender   User   @relation("send", fields: [senderId], references: [id])
+  senderId String
+
+  receiver   User   @relation("received", fields: [receiverId], references: [id])
   receiverId String
 }
 
