@@ -15,6 +15,7 @@ const Sidebar = () => {
       <section className="profile-container">
         <div className="profile-card">
           <section>
+            
             <Image width={100} height={100} src={"https://github.com/marvelxcodes.png"} />
           </section>
           <section>

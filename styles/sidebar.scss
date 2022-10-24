@@ -40,8 +40,16 @@
                 padding: 1rem;
                 display: flex;
                 justify-content: center;
+                
                 img {
                     border-radius: 100%;
+                    background-color: #000;
+                    transition: all .3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        opacity: 80%;
+                    }
                 }
             
             }

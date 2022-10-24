@@ -9,8 +9,8 @@ const Home: NextPage = () => {
       <section>
         <Header />
         <div className="main-container">
-			
-		</div>
+          
+        </div>
       </section>
     </main>
   )

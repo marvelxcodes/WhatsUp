@@ -8,24 +8,33 @@ datasource db {
 }
 
 model User {
-  id       String    @id @unique @default(uuid())
-  userName String    @unique
+  id       String   @id @unique @default(uuid())
+  userName String   @unique
   name     String
   about    String
-  joinedOn DateTime  @default(now())
-  Message  Message[]
+  joinedOn DateTime @default(now())
+  Mood     Mood[]
+
+  send     Message[] @relation("send")
+  received Message[] @relation("received")
 }
 
 model Message {
   id       String   @id @unique @default(uuid())
-  sender   User
-  receiver User
   body     String
   postedAt DateTime @default(now())
-  userId   String
+
+  sender     User    @relation("send", fields: [senderId], references: [id])
+  receiver   User    @relation("received", fields: [receiverId], references: [id])
+  senderId   String
+  receiverId String
 }
 
 model Mood {
   id       String   @id @unique @default(uuid())
+  url      String
   postedAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 }

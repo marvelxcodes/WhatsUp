@@ -1,9 +1,11 @@
+import Head from "@components/Head"
 
 const Header = () => {
   return (
-    <header>
-        WhatsUp
-    </header>
+    <>
+      <Head />
+      <header>WhatsUp</header>
+    </>
   )
 }
 
