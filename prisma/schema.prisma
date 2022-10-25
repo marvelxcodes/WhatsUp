@@ -24,6 +24,7 @@ model User {
 model Message {
   id       String   @id @unique @default(uuid())
   body     String
+  seen     Boolean  @default(false)
   postedAt DateTime @default(now())
 
   sender   User   @relation("send", fields: [senderId], references: [id])

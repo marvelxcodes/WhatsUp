@@ -20,6 +20,8 @@
       "@assets/*": ["./assets/*"],
       "@styles/*": ["./styles/*"],
       "@hooks/*": ["./hooks/*"],
+      "@graphql/*": ["./graphql/*"],
+      "@utils/*": ["./utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_middleware.js"],

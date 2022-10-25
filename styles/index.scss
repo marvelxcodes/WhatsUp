@@ -1,23 +1,15 @@
-@media (max-width: 767px) {
+main {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 9fr;
 
-}
+  section {
+    display: flex;
+    flex-direction: column;
 
-
-@media (min-width: 768px) {
-    main {
-        height: 100vh;
-        width: 100vw;
-        display: grid;
-        grid-template-columns: 1fr 9fr;
-
-        section {
-            display: flex;
-            flex-direction: column;
-
-            .main-container {
-                overflow-y: scroll;
-            }
-        }
+    .main-container {
+      overflow-y: scroll;
     }
-
+  }
 }

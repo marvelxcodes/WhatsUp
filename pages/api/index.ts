@@ -1,11 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { PrismaClient } from "@prisma/client"
+import { user } from "@graphql/resolvers"
 
-const prisma = new PrismaClient()
-
-export default (
+const graphQL = async (
     req: NextApiRequest,
     res: NextApiResponse
 ) => {
     
 }
+
+export default graphQL
