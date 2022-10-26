@@ -17,8 +17,21 @@ model User {
   lastSeen DateTime @default(now())
   Mood     Mood[]
 
-  send     Message[] @relation("send")
-  received Message[] @relation("received")
+  user1 Chat[] @relation("user1")
+  user2 Chat[] @relation("user2")
+}
+
+model Chat {
+  id       String    @id @unique @default(uuid())
+  messages Message[]
+
+  user1   User   @relation("user1", fields: [user1Id], references: [id])
+  user1Id String
+
+  user2   User   @relation("user2", fields: [user2Id], references: [id])
+  user2Id String
+
+  @@unique([user1Id, user2Id])
 }
 
 model Message {
@@ -27,11 +40,9 @@ model Message {
   seen     Boolean  @default(false)
   postedAt DateTime @default(now())
 
-  sender   User   @relation("send", fields: [senderId], references: [id])
+  chat     Chat   @relation(fields: [chatId], references: [id])
+  chatId   String
   senderId String
-
-  receiver   User   @relation("received", fields: [receiverId], references: [id])
-  receiverId String
 }
 
 model Mood {

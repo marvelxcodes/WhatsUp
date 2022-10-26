@@ -20,7 +20,7 @@
       "@assets/*": ["./assets/*"],
       "@styles/*": ["./styles/*"],
       "@hooks/*": ["./hooks/*"],
-      "@graphql/*": ["./graphql/*"],
+      "@resolvers/*": ["./resolvers/*"],
       "@utils/*": ["./utils/*"]
     }
   },
