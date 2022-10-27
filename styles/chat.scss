@@ -48,3 +48,40 @@
     background: #000;
   }
 }
+
+.new-chat {
+  width: 100%;
+  border-width: 0 0 1px 0;
+  border-color: rgba(140, 140, 140, 0.5);
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  
+  input, button {
+    border: none;
+    outline: none;
+  }
+
+  input {
+    background-color: rgba(255, 0, 149, 0.229);
+    height: 3rem;
+    padding: 0 1rem 0 1.5rem;
+    border-radius: 1rem 0 0 1rem;
+    color: rgb(93, 93, 93);
+    font-weight: 600;
+  }
+
+  button {
+    height: 3rem;
+    aspect-ratio: 1 / 1;
+    background-color: rgb(255, 0, 149);
+    color: white;
+    border-radius: 0 1rem 1rem 0;
+    
+    svg {
+      height: 1.5rem;
+    }
+  }
+}

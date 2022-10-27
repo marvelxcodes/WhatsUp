@@ -2,6 +2,7 @@ import Image from "next/image"
 import Chat from "@components/Chat"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import axios from "axios"
+import NewChat from "./NewChat"
 
 export type SidebarProps = {
   setCurrChat: Dispatch<SetStateAction<number>>
@@ -49,6 +50,7 @@ const Sidebar = ({setCurrChat}: SidebarProps) => {
         <Chat />
         <Chat />
         <Chat />
+        <NewChat />
       </section>
     </aside>
   )
