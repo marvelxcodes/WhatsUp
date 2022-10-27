@@ -14,9 +14,11 @@ const Home: NextPage = ({}) => {
   return (
     <main>
       <Sidebar setCurrChat={setCurrChat} />
-      <section>
+      <section className="main">
         <Header />
-        <div className="main-container"></div>
+        <div className="main-container">
+
+        </div>
       </section>
     </main>
   )

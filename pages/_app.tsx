@@ -1,11 +1,21 @@
 import type { AppProps } from "next/app"
-import { ClerkProvider } from "@clerk/nextjs"
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+} from "@clerk/nextjs"
 import "@styles/main.scss"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <ClerkProvider {...pageProps}>
-      <Component {...pageProps} />
+      <SignedIn>
+        <Component {...pageProps} />
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
     </ClerkProvider>
   )
 }

@@ -1,8 +1,7 @@
 import Image from "next/image"
 import Chat from "@components/Chat"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
-import axios from "axios"
-import NewChat from "./NewChat"
+import NewChat from "@components/NewChat"
 
 export type SidebarProps = {
   setCurrChat: Dispatch<SetStateAction<number>>
@@ -12,19 +11,10 @@ export type SidebarToggleProps = {
   isOpen: boolean
 }
 
-export const SidebarToggle = ({isOpen}: SidebarToggleProps) => {
-  return (
-    <span className="sidebar-toggle">
-      
-    </span>
-  )
-}
-
 const Sidebar = ({setCurrChat}: SidebarProps) => {
   const [chats, setChats] = useState<object[]>()
   return (
     <aside>
-      <SidebarToggle isOpen />
       <section className="profile-container">
         <div className="profile-card">
           <section>

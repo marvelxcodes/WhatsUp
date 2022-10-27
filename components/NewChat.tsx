@@ -1,11 +1,18 @@
-import useSwr from "swr"
+import useSWR from "swr"
+import FetchNewChat from "@fetchers/NewChat"
 
 const NewChat = () => {
-  const { data } = useSwr("/chat")
+  const { mutate, data } = useSWR("/chat", {
+    
+  })
+
+  const submitHandler = async () => {
+    await mutate()
+  }
   return (
-    <div className="new-chat">
+    <form onSubmit={submitHandler} className="new-chat">
       <input type="text" placeholder="Phone" />
-      <button>
+      <button onClick={submitHandler}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -20,7 +27,7 @@ const NewChat = () => {
           />
         </svg>
       </button>
-    </div>
+    </form>
   )
 }
 

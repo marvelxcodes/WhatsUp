@@ -1,24 +1,7 @@
-@media (min-width: 768px) {
-  .sidebar-toggle {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .sidebar-toggle {
-    position: absolute;
-    height: 1rem;
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background-color: rgb(255, 0, 150);
-    top: 50%;
-    transform: translateY(50%);
-  }
-}
-
 aside {
   height: 100vh;
-  width: 20rem;
+  width: 100vw;
+  max-width: 320px;
   overflow-y: scroll;
   display: flex;
   position: relative;
@@ -47,7 +30,7 @@ aside {
 
       section:nth-child(1) {
         height: 100%;
-        width: 5rem;
+        aspect-ratio: 1 / 1;
         padding: 1rem;
         display: flex;
         justify-content: center;

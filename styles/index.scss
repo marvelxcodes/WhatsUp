@@ -1,12 +1,12 @@
 main {
   height: 100vh;
   width: 100vw;
-  display: grid;
-  grid-template-columns: 1fr 9fr;
+  display: flex;
 
-  section {
+  section.main {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
     .main-container {
       overflow-y: scroll;
