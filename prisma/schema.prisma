@@ -11,9 +11,7 @@ model User {
   id    String @id @unique @default(uuid())
   phone BigInt @unique
   name  String
-  about String
 
-  joinedOn DateTime @default(now())
   lastSeen DateTime @default(now())
   Mood     Mood[]
 

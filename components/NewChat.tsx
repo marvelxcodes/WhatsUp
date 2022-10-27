@@ -1,10 +1,9 @@
 import useSWR from "swr"
-import FetchNewChat from "@fetchers/NewChat"
 
 const NewChat = () => {
-  const { mutate, data } = useSWR("/chat", {
-    
-  })
+  const { mutate, data } = useSWR("/chat", () => (
+    ""
+  ))
 
   const submitHandler = async () => {
     await mutate()

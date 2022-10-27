@@ -14,7 +14,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} />
       </SignedIn>
       <SignedOut>
-        <RedirectToSignIn />
+        <RedirectToSignIn afterSignUpUrl={"/SignUp"} />
       </SignedOut>
     </ClerkProvider>
   )

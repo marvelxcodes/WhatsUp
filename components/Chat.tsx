@@ -7,9 +7,9 @@ export type ChatProps = {
   isCurr: boolean
 }
 
-const Chat = ({ phone, lastSeen, name, isCurr=true }: ChatProps) => {
+const Chat = ({}: ChatProps) => {
   return (
-    <div className={`chat ${isCurr?"currChat":null}`}>
+    <div onClick={() =>  } className='chat'>
       <div className="image-container">
         <Image src={"https://github.com/marvelxcodes.png"} height={100} width={100} />
       </div>

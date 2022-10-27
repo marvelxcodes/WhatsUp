@@ -2,44 +2,51 @@ import Image from "next/image"
 import Chat from "@components/Chat"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import NewChat from "@components/NewChat"
+import { useClerk, useUser } from "@clerk/nextjs"
+import useSWR from "swr"
+import axios from "axios"
+
+export type User = {
+  id: string
+  name: string
+  phone: number
+  lastSeen: string
+}
+
+export type ChatApiResponse = {
+  id: string
+   
+  user1: User
+  user2: User
+}
 
 export type SidebarProps = {
-  setCurrChat: Dispatch<SetStateAction<number>>
+  setCurrChat: Dispatch<SetStateAction<User>>
 }
 
-export type SidebarToggleProps = {
-  isOpen: boolean
-}
-
-const Sidebar = ({setCurrChat}: SidebarProps) => {
-  const [chats, setChats] = useState<object[]>()
+const Sidebar = ({ setCurrChat }: SidebarProps) => {
+  const { user } = useUser()
+  const { data: chats } = useSWR(`/chat/${Number(user?.primaryPhoneNumber?.toString().slice(-10))}`, (url) => {
+    axios.get(url, {
+      
+    }).then((res) => res.data)
+  })
+  const { openUserProfile } = useClerk()
   return (
     <aside>
       <section className="profile-container">
-        <div className="profile-card">
+        <div className="profile-card" onClick={() => openUserProfile()}>
           <section>
-            <Image
-              width={100}
-              height={100}
-              src={"https://github.com/marvelxcodes.png"}
-            />
+            <Image width={100} height={100} src={user?.profileImageUrl!} />
           </section>
           <section>
-            <p className="name">Rama Krishnan V</p>
-            <p className="phone">@8754205431</p>
+            <p className="name">{user?.fullName}</p>
+            <p className="phone">{`@${Number(user?.primaryPhoneNumber?.toString().slice(-10))}`}</p>
           </section>
         </div>
       </section>
       <section className="chats-container">
-        <Chat />
-        <Chat />
-        <Chat />
-        <Chat />
-        <Chat />
-        <Chat />
-        <Chat />
-        <Chat />
-        <Chat />
+        {}
         <NewChat />
       </section>
     </aside>

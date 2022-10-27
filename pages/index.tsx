@@ -10,14 +10,19 @@ import { useState } from "react"
 import prisma from "@utils/prisma"
 
 const Home: NextPage = ({}) => {
-  const [currChat, setCurrChat] = useState()
+  const [currChat, setCurrChat] = useState({
+    id: "string",
+    name: "string",
+    phone: 9832872342,
+    lastSeen: "string"
+  })
   return (
     <main>
       <Sidebar setCurrChat={setCurrChat} />
       <section className="main">
-        <Header />
+        <Header currChat={currChat} />
         <div className="main-container">
-
+          
         </div>
       </section>
     </main>
@@ -31,9 +36,10 @@ export type PageProps = {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ): Promise<GetServerSidePropsResult<PageProps>> => {
+
   return {
     props: {
-      currchat: 8754205431,
+      
     },
   }
 }
