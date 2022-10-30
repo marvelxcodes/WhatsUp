@@ -65,20 +65,21 @@
   }
 
   input {
-    background-color: rgba(255, 0, 149, 0.229);
+    background-color: rgb(233, 233, 233);
     height: 3rem;
     padding: 0 1rem 0 1.5rem;
-    border-radius: 1rem 0 0 1rem;
-    color: rgb(93, 93, 93);
-    font-weight: 600;
+    border-radius: 0.5rem 0 0 0.5rem;
+    color: rgb(44, 44, 44);
+    font-weight: 500;
   }
 
   button {
+    cursor: pointer;
     height: 3rem;
     aspect-ratio: 1 / 1;
     background-color: rgb(255, 0, 149);
     color: white;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 0 .5rem .5rem 0;
     
     svg {
       height: 1.5rem;

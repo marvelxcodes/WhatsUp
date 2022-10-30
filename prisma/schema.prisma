@@ -8,9 +8,8 @@ datasource db {
 }
 
 model User {
-  id    String @id @unique @default(uuid())
-  phone BigInt @unique
-  name  String
+  id   BigInt @id @unique
+  name String
 
   lastSeen DateTime @default(now())
   Mood     Mood[]
@@ -24,10 +23,10 @@ model Chat {
   messages Message[]
 
   user1   User   @relation("user1", fields: [user1Id], references: [id])
-  user1Id String
+  user1Id BigInt
 
   user2   User   @relation("user2", fields: [user2Id], references: [id])
-  user2Id String
+  user2Id BigInt
 
   @@unique([user1Id, user2Id])
 }
@@ -40,7 +39,7 @@ model Message {
 
   chat     Chat   @relation(fields: [chatId], references: [id])
   chatId   String
-  senderId String
+  senderId BigInt
 }
 
 model Mood {
@@ -49,5 +48,5 @@ model Mood {
   postedAt DateTime @default(now())
 
   user   User   @relation(fields: [userId], references: [id])
-  userId String
+  userId BigInt
 }

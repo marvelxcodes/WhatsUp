@@ -7,18 +7,19 @@ const SignUp = () => {
   const { user } = useUser()
   const { push } = useRouter()
 
-  const fetch = (url:string) => {
+  const fetch = (url: string) => {
     axios.post(url, {
-        name: user?.fullName,
-        phone: Number(user?.primaryPhoneNumber?.toString().slice(-10))
+      id: Number(user?.primaryPhoneNumber?.toString().slice(-10)),
+      name: user?.fullName
     })
   }
 
-    const { isValidating } = useSWR(`${location.origin}/api/user/create`, fetch, {
-    onSuccess: () => push("/")
+  const { data } = useSWR(`/api/user/create`, fetch, {
+    onSuccess: () => push("/"),
+    revalidateOnFocus: false
   })
 
-  return <div>{isValidating && <h1>"Redirecting..."</h1>}</div>
+  return <div>{!data && <h1>Redirecting...</h1>}</div>
 }
 
 export default SignUp

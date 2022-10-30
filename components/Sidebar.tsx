@@ -26,10 +26,8 @@ export type SidebarProps = {
 
 const Sidebar = ({ setCurrChat }: SidebarProps) => {
   const { user } = useUser()
-  const { data: chats } = useSWR(`/chat/${Number(user?.primaryPhoneNumber?.toString().slice(-10))}`, (url) => {
-    axios.get(url, {
-      
-    }).then((res) => res.data)
+  const { data: chats } = useSWR(`/api/chat/${Number(user?.primaryPhoneNumber?.toString().slice(-10))}`, url => {
+    axios.get(url).then(res => res.data)
   })
   const { openUserProfile } = useClerk()
   return (
