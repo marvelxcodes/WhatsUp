@@ -18,8 +18,9 @@ const Header = ({ currChat }: HeaderProps) => {
         <div className="image-container">
           <Image
             src={"https://github.com/marvelxcodes.png"}
-            height={100}
-            width={100}
+            height={60}
+            width={60}
+            alt="Profile Image"
           />
         </div>
         <div className="details-container">

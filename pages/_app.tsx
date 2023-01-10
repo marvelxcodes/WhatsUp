@@ -6,6 +6,7 @@ import {
   RedirectToSignIn,
 } from "@clerk/nextjs"
 import "@styles/main.scss"
+import dynamic from "next/dynamic"
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (

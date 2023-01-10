@@ -35,7 +35,7 @@ const Sidebar = ({ setCurrChat }: SidebarProps) => {
       <section className="profile-container">
         <div className="profile-card" onClick={() => openUserProfile()}>
           <section>
-            <Image width={100} height={100} src={user?.profileImageUrl!} />
+            <Image width={60} height={60} src={user?.profileImageUrl!} alt="ProfileImg" />
           </section>
           <section>
             <p className="name">{user?.fullName}</p>
